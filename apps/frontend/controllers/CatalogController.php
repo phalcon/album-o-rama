@@ -20,7 +20,7 @@ class CatalogController extends ControllerBase
 		$key = 'artist'.$artistId;
 
 		$exists = $this->view->getCache()->exists($key);
-        if (!$exists) {
+		if (!$exists) {
 
 			$artist = Artists::findFirst(array(
 				'id = ?0', 'bind' => array($artistId)
@@ -41,11 +41,11 @@ class CatalogController extends ControllerBase
 			$tags = $this->modelsManager->executeQuery($phql);
 
 			//Top albums
-	    	$phql = 'SELECT
-	    	al.id,
-	    	al.name,
-	    	al.uri,
-	    	ap.url
+			$phql = 'SELECT
+			al.id,
+			al.name,
+			al.uri,
+			ap.url
 			FROM AlbumOrama\Models\Albums al
 			JOIN AlbumOrama\Models\AlbumsPhotos ap
 			WHERE
@@ -54,14 +54,14 @@ class CatalogController extends ControllerBase
 			al.playcount > 25000
 			ORDER BY al.playcount DESC
 			LIMIT 18';
-	    	$albums = $this->modelsManager->executeQuery($phql);
+			$albums = $this->modelsManager->executeQuery($phql);
 
-	    	//Similar Artists
-	    	$phql = 'SELECT
-	    	ar.id,
-	    	ar.name,
-	    	ar.uri,
-	    	ap.url
+			//Similar Artists
+			$phql = 'SELECT
+			ar.id,
+			ar.name,
+			ar.uri,
+			ap.url
 			FROM AlbumOrama\Models\ArtistsSimilar ars,
 			AlbumOrama\Models\Artists ar,
 			AlbumOrama\Models\ArtistsPhotos ap
@@ -72,7 +72,7 @@ class CatalogController extends ControllerBase
 			ars.artists_id = '.$artist->id.'
 			ORDER BY ar.listeners DESC
 			LIMIT 10';
-	    	$similars = $this->modelsManager->executeQuery($phql);
+			$similars = $this->modelsManager->executeQuery($phql);
 
 			$this->view->setVar('artist', $artist);
 			$this->view->setVar('albums', $albums);
@@ -91,7 +91,7 @@ class CatalogController extends ControllerBase
 		$key = 'album'.$albumId;
 
 		$exists = $this->view->getCache()->exists($key);
-        if (!$exists) {
+		if (!$exists) {
 
 			$album = Albums::findFirst(array(
 				'id = ?0', 'bind' => array($albumId)
@@ -113,10 +113,10 @@ class CatalogController extends ControllerBase
 			$tags = $this->modelsManager->executeQuery($phql);
 
 			//Top albums
-	    	$phql = 'SELECT
-	    	al.id,
-	    	al.name,
-	    	al.uri
+			$phql = 'SELECT
+			al.id,
+			al.name,
+			al.uri
 			FROM AlbumOrama\Models\Albums al
 			WHERE
 			al.id <> '.$album->id.' AND
@@ -124,7 +124,7 @@ class CatalogController extends ControllerBase
 			al.playcount > 25000
 			ORDER BY al.playcount DESC
 			LIMIT 5';
-	    	$relatedAlbums = $this->modelsManager->executeQuery($phql);
+			$relatedAlbums = $this->modelsManager->executeQuery($phql);
 
 			$album->loadPalette();
 
@@ -142,14 +142,14 @@ class CatalogController extends ControllerBase
 	}
 
 	 public function tagAction($tagName, $page=1)
-    {
+	{
 
-    	$page = $this->filter->sanitize($page, 'int');
-    	if ($page < 1) {
-    		$page = 1;
-    	}
+		$page = $this->filter->sanitize($page, 'int');
+		if ($page < 1) {
+			$page = 1;
+		}
 
-    	$tag = Tags::findFirst(array(
+		$tag = Tags::findFirst(array(
 			'name = ?0', 'bind' => array($tagName)
 		));
 		if ($tag == false) {
@@ -162,16 +162,16 @@ class CatalogController extends ControllerBase
 		$key = 'tag'.$tag->id.'p'.$page;
 
 		$exists = $this->view->getCache()->exists($key);
-        if (!$exists) {
+		if (!$exists) {
 
-	        //Top albums
-	    	$phql = 'SELECT
-	    	al.id,
-	    	al.name,
-	    	ar.uri,
-	        ar.id as artist_id,
-	    	ar.name as artist,
-	    	ap.url
+			//Top albums
+			$phql = 'SELECT
+			al.id,
+			al.name,
+			ar.uri,
+			ar.id as artist_id,
+			ar.name as artist,
+			ap.url
 			FROM AlbumOrama\Models\Albums al
 			JOIN AlbumOrama\Models\Artists ar
 			JOIN AlbumOrama\Models\AlbumsTags at
@@ -182,29 +182,29 @@ class CatalogController extends ControllerBase
 			ORDER BY al.playcount DESC
 			LIMIT 30
 			OFFSET '.(($page-1)*30);
-	    	$albums = $this->modelsManager->executeQuery($phql);
+			$albums = $this->modelsManager->executeQuery($phql);
 
-	    	$this->view->setVar('tag', $tag);
-	    	$this->view->setVar('albums', $albums);
-	    	$this->view->setVar('page', $page);
-	    	$this->view->setVar('prev', $page == 1 ? 0 : $page-1);
-	    	$this->view->setVar('next', count($albums) == 30 ? $page+1 : 0);
+			$this->view->setVar('tag', $tag);
+			$this->view->setVar('albums', $albums);
+			$this->view->setVar('page', $page);
+			$this->view->setVar('prev', $page == 1 ? 0 : $page-1);
+			$this->view->setVar('next', count($albums) == 30 ? $page+1 : 0);
 
-	    }
+		}
 
-	    $this->view->cache(array("key" => $key));
+		$this->view->cache(array("key" => $key));
 
-    }
+	}
 
-    public function searchAction()
-    {
+	public function searchAction()
+	{
 
-    	//Top albums
-    	$phql = 'SELECT
-    	ar.id,
-    	ar.name,
-    	ar.uri,
-    	ap.url
+		//Top albums
+		$phql = 'SELECT
+		ar.id,
+		ar.name,
+		ar.uri,
+		ap.url
 		FROM AlbumOrama\Models\Artists ar
 		JOIN AlbumOrama\Models\ArtistsPhotos ap
 		WHERE
@@ -213,67 +213,67 @@ class CatalogController extends ControllerBase
 		ORDER BY ar.listeners DESC
 		LIMIT 30';
 
-    	$artists = $this->modelsManager->executeQuery($phql, array(
-    		'%'.preg_replace('/[ ]+/', '%', $this->request->getPost('s')).'%'
-    	));
+		$artists = $this->modelsManager->executeQuery($phql, array(
+			'%'.preg_replace('/[ ]+/', '%', $this->request->getPost('s')).'%'
+		));
 
-    	$this->view->setVar('artists', $artists);
+		$this->view->setVar('artists', $artists);
 
-    }
+	}
 
-    public function popularAction()
+	public function popularAction()
 	{
 
-        $key = 'popular';
+		$key = 'popular';
 
-        $exists = $this->view->getCache()->exists($key);
-        if (!$exists) {
+		$exists = $this->view->getCache()->exists($key);
+		if (!$exists) {
 
-            //Top albums
-        	$phql = 'SELECT
-        	al.id,
-        	al.name,
-        	ar.uri,
-            ar.id as artist_id,
-        	ar.name as artist,
-        	ap.url
-    		FROM AlbumOrama\Models\Albums al
-    		JOIN AlbumOrama\Models\Artists ar
-    		JOIN AlbumOrama\Models\AlbumsPhotos ap
-    		WHERE
-    		ap.type = "large"
-    		ORDER BY al.playcount DESC
-    		LIMIT 30';
-        	$albums = $this->modelsManager->executeQuery($phql);
+			//Top albums
+			$phql = 'SELECT
+			al.id,
+			al.name,
+			ar.uri,
+			ar.id as artist_id,
+			ar.name as artist,
+			ap.url
+			FROM AlbumOrama\Models\Albums al
+			JOIN AlbumOrama\Models\Artists ar
+			JOIN AlbumOrama\Models\AlbumsPhotos ap
+			WHERE
+			ap.type = "large"
+			ORDER BY al.playcount DESC
+			LIMIT 30';
+			$albums = $this->modelsManager->executeQuery($phql);
 
-        	$this->view->setVar('albums', $albums);
+			$this->view->setVar('albums', $albums);
 
-            //Top tags
-            $phql = 'SELECT t.name, COUNT(*)
-            FROM AlbumOrama\Models\Tags t
-            JOIN AlbumOrama\Models\AlbumsTags at
-            GROUP BY 1
-            HAVING COUNT(*) > 50
-            LIMIT 14';
-            $tags = $this->modelsManager->executeQuery($phql);
+			//Top tags
+			$phql = 'SELECT t.name, COUNT(*)
+			FROM AlbumOrama\Models\Tags t
+			JOIN AlbumOrama\Models\AlbumsTags at
+			GROUP BY 1
+			HAVING COUNT(*) > 50
+			LIMIT 14';
+			$tags = $this->modelsManager->executeQuery($phql);
 
-            $this->view->setVar('tags', $tags);
+			$this->view->setVar('tags', $tags);
 
-        }
+		}
 
-        $this->view->cache(array("key" => $key));
-    }
+		$this->view->cache(array("key" => $key));
+	}
 
-    /**
-     * This action handles the /charts route
-     */
+	/**
+	 * This action handles the /charts route
+	 */
 	public function chartsAction()
 	{
 
 		$key = 'charts';
 
-        $exists = $this->view->getCache()->exists($key);
-        if (!$exists) {
+		$exists = $this->view->getCache()->exists($key);
+		if (!$exists) {
 
 			$tagGenres = array(
 				'pop', 'rock', 'rap',
@@ -295,13 +295,13 @@ class CatalogController extends ControllerBase
 				}
 
 				//Top albums
-		    	$phql = 'SELECT
-		    	al.id,
-		    	al.name,
-		    	ar.uri,
-		        ar.id as artist_id,
-		    	ar.name as artist,
-		    	ap.url
+				$phql = 'SELECT
+				al.id,
+				al.name,
+				ar.uri,
+				ar.id as artist_id,
+				ar.name as artist,
+				ap.url
 				FROM AlbumOrama\Models\Albums al
 				JOIN AlbumOrama\Models\Artists ar
 				JOIN AlbumOrama\Models\AlbumsTags at
@@ -311,7 +311,7 @@ class CatalogController extends ControllerBase
 				at.tags_id = '.$tag->id.'
 				ORDER BY al.playcount DESC
 				LIMIT 10';
-		    	$charts[$tag->name] = $this->modelsManager->executeQuery($phql);
+				$charts[$tag->name] = $this->modelsManager->executeQuery($phql);
 			}
 
 			$this->view->setVar('charts', $charts);

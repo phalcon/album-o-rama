@@ -45,12 +45,12 @@ class Module
 
 					$volt->setOptions(array(
 						"compiledPath" => __DIR__."/../../var/volt/",
-        				"compiledExtension" => ".php"
-    				));
+						"compiledExtension" => ".php"
+					));
 
-            		return $volt;
-        		}
-    		));
+					return $volt;
+				}
+			));
 
 			return $view;
 
