@@ -1,0 +1,5 @@
+var/cache/album*
+var/cache/index*
+var/cache/tag*
+var/volt/*.volt.php
+var/cache/artist*

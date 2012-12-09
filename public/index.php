@@ -19,7 +19,7 @@ try {
 	 */
 	$di->set('url', function() {
 		$url = new \Phalcon\Mvc\Url();
-		$url->setBaseUri('/album-orama/');
+		$url->setBaseUri('/album-o-rama/');
 		return $url;
 	});
 
@@ -64,6 +64,7 @@ try {
 			return;
 		}
 
+		$di->getFlash()->error($errstr);
 		$di->getLogger()->log($errstr.' '.$errfile.':'.$errline, Phalcon\Logger::ERROR);
 
 		return true;
