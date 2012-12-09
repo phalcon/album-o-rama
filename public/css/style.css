@@ -1,0 +1,334 @@
+
+* {
+    margin: 0;
+    outline: 0 none;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Reklame';
+    font-style: normal;
+    src: url('../fonts/reklame.otf');
+}
+
+body {
+	font-family: 'PT Sans',sans-serif;
+    background: url("../img/background.png") repeat scroll 0 0 transparent;
+}
+
+div#logo {
+    float: left;
+    height: 72px;
+}
+
+div#logo h1 {
+    font-family: 'Reklame';
+    font-size: 72px;
+    font-weight: normal;
+    color: #CB1D2D;
+}
+
+div#logo a {
+    text-decoration: none;
+}
+
+.clearfix:after {
+    clear: both;
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+
+#top-menu,
+#top-tags,
+#breadcrumbs,
+#paginator {
+    height: 72px;
+    margin: 40px auto;
+    width: 1000px;
+}
+
+#breadcrumbs {
+    height: 25px;
+    text-align: left;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+#top-tags {
+    height: 40px;
+    background: #190000;
+    padding-left: 15px;
+    text-align: center;
+}
+
+#menu-divider {
+    border-right: 1px solid #BBBBBB;
+    float: left;
+    height: 72px;
+    margin: 0 25px;
+}
+
+#menu-links {
+    float: left;
+    height: 40px;
+    margin: 20px 0 10px;
+}
+
+#tags-links {
+    float: left;
+    margin: 5px 0 5px;
+}
+
+#menu-links ul,
+#tags-links ul {
+    margin: 0;
+    padding: 0;
+}
+
+#menu-links li,
+#tags-links li {
+    display: block;
+    float: left;
+    height: 40px;
+    line-height: 30px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+#menu-links ul > li a,
+#tags-links ul > li a {
+    font-weight: bold;
+    position: relative;
+}
+
+#menu-links li a,
+#tags-links li a {
+    color: #333333;
+    display: block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    text-decoration: none;
+}
+
+#tags-links li {
+    color: #dadada;
+    font-weight: normal;
+}
+
+#tags-links li a {
+    color: #fafafa;
+    font-weight: normal;
+}
+
+#header-search {
+    display: block;
+    float: right;
+    padding: 18px 0 0;
+}
+
+#header-search input {
+    border: 1px solid #BBBBBB;
+    height: 23px;
+    padding: 6px;
+    width: 200px;
+}
+
+form div {
+    position: relative;
+}
+
+#header-search input#searchsubmit {
+    background-color: #EDEDED;
+    color: #333333;
+    cursor: pointer;
+    font-weight: bold;
+    height: 37px;
+    left: -5px;
+    position: relative;
+    width: 57px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+div.section-header {
+    width: 1000px;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+table.albums-index td {
+    text-align: center;
+    width: 150px;
+    padding-bottom: 10px;
+}
+
+table.albums-index img {
+    width: 126px;
+    height: 126px;
+}
+
+table.albums-index .album-name a {
+    font-size: 14px;
+    color: #333333;
+    font-weight: bold;
+}
+
+table.albums-index .artist-name a {
+    font-size: 13px;
+    color: #444444;
+    text-decoration: none;
+}
+
+table.albums-index .artist-name a:hover {
+    text-decoration: underline;
+}
+
+table.album-showcast {
+    margin-bottom: 25px;
+}
+
+table.album-showcast .image {
+    width: 320px;
+}
+
+table.album-showcast .image img {
+    border: 1px solid #969696;
+}
+
+table.album-showcast .summary {
+    color: #333333;
+    font: 14px/1.5 "Open Sans","Lucida Sans","Lucida Grande","Lucida Sans Unicode",Calibri,sans-serif;
+    word-wrap: break-word;
+    padding: 10px;
+}
+
+table.artist-showcast .image {
+    width: 250px;
+    background: #222222;
+}
+
+table.artist-showcast .image img {
+    width: 250px;
+}
+
+table.artist-showcast h1 {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #f1f1f1;
+}
+
+table.artist-showcast .bio {
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #dadada;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+table.artist-showcast .content {
+    background: #fff;
+    padding: 10px;
+    padding-left: 40px;
+    padding-top: 30px;
+    border: 1px solid #abaaba;
+}
+
+table.tracks {
+    width: 100%;
+}
+
+table.tracks td {
+    padding: 5px;
+}
+
+table.tracks td.track-number,
+table.tracks td.track-duration {
+    width: 25px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+table.chart {
+    width: 320px;
+}
+
+table.chart .image {
+    width: 34px;
+}
+
+table.chart .album {
+    padding-left: 7px;
+    padding-top: 5px;
+    padding-right: 10px;
+}
+
+table.chart .album a {
+    color: #111111;
+}
+
+table.chart .artist-name {
+    font-size: 13px;
+}
+
+table.chart .title {
+    background: none repeat scroll 0 0 #190000;
+    height: 25px;
+    padding: 10px;
+    color: #ffffff;
+}
+
+table.chart .title a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+table.chart .title a:hover {
+    text-decoration: underline;
+}
+
+table.chart tr:nth-child(2n+1) {
+    background-color: #ffffff;
+}
+
+#paginator {
+    padding: 10px;
+    height: 25px;
+    background: #dadada;
+}
+
+#paginator a {
+    color: #190000;
+    margin-top: 15px;
+    margin: 10px;
+}
+
+#paginator .next {
+    float: right;
+}
+
+#paginator .prev {
+    float: left;
+}
+
+div#footer {
+    background: none repeat scroll 0 0 #190000;
+    color: #dadada;
+    height: 100px;
+    text-align: right;
+    margin-top: 50px;
+    padding-top: 20px;
+    padding-right: 20px;
+    font-size: 13px;
+}
+
+div#footer a {
+    color: #fafafa;
+}

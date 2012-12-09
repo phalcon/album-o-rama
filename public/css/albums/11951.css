@@ -1,0 +1,18 @@
+
+body { background:#0A0A14; }
+h1 { color: #DCC8F5 }
+div#logo h1 { color: #DCC8F5 }
+#menu-links ul > li a { color: #c3afdc }
+#breadcrumbs { color: #c3afdc }
+#breadcrumbs a { color: #c3afdc; }
+table.album-showcast .release-date { color: #b9a5d2 }
+table.album-showcast .summary { color: #cdb9e6 }
+table.album-showcast a { color: #f5e1ff }
+table.album-showcast .image img { border: 1px solid #191923 }
+table.tracks td { color: #cdb9e6 }
+table.tracks tr:nth-child(2n+1) { background-color: #23232d }
+#top-tags { background-color: #23232d }
+#tags-links li { color: #c3afdc }
+#tags-links li a { color: #f5e1ff }
+div#footer { background: #000000; color: #DCC8F5; }
+div#footer a { color: #DCC8F5; }
