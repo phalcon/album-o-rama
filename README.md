@@ -8,7 +8,7 @@ This is a sample application for the Phalcon PHP Framework. We expect to
 implement as many features as possible to showcase the framework and its
 potential.
 
-Please write use if you have any feedback.
+Please write us if you have any feedback.
 
 Thanks.
 
