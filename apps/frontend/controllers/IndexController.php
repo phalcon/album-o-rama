@@ -26,10 +26,10 @@ class IndexController extends ControllerBase
 			JOIN AlbumOrama\Models\Artists ar
 			JOIN AlbumOrama\Models\AlbumsPhotos ap
 			WHERE
+			al.id >= '.$offset.' AND
 			ap.type = "large"
 			ORDER BY al.playcount DESC
-			LIMIT 30
-			OFFSET '.$offset;
+			LIMIT 30';
 			$albums = $this->modelsManager->executeQuery($phql);
 
 			$this->view->setVar('albums', $albums);
