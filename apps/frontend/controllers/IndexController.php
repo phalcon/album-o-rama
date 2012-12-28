@@ -26,7 +26,7 @@ class IndexController extends ControllerBase
 			JOIN AlbumOrama\Models\Artists ar
 			JOIN AlbumOrama\Models\AlbumsPhotos ap
 			WHERE
-			al.id >= '.$offset.' AND
+			al.id >= '.($offset * 30).' AND
 			ap.type = "large"
 			ORDER BY al.playcount DESC
 			LIMIT 30';
