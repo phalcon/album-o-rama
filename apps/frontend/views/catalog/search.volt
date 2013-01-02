@@ -6,21 +6,19 @@
 </div>
 
 <table class="albums-index">
-	{% set n = 1 %}
 	<tr>
-	{% for artist in artists %}
+	{% for n, artist in artists %}
 		<td valign="top">
 			<div class="album-name">
-				<img src="{{ artist.url }}" />
+				{{ link_to('artist/' ~ artist.id ~ '/' ~ artist.uri, '<img src="' ~ artist.url ~ '" />') }}
 			</div>
 			<div class="artist-name">
 				{{ link_to('artist/' ~ artist.id ~ '/' ~ artist.uri, artist.name) }}
 			</div>
 		</td>
-		{% if (n % 6) == 0 %}
+		{% if ((n+1) % 6) == 0 %}
 			</tr><tr>
 		{% endif %}
-		{% set n = n + 1 %}
 	{% endfor %}
 </table>
 

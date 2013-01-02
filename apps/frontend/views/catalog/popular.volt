@@ -20,4 +20,4 @@
 	<h2>Popular Albums</h2>
 </div>
 
-{{ partial('partials/album-list') }}
+{% include "partials/album-list.volt" %}

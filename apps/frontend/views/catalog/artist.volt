@@ -3,6 +3,7 @@
 <div id="top-tags">
 
 	<div id="tags-links">
+		{# {% cache tags %} #}
 		<ul id="tags-header-navigation" class="tags">
 			<li class="tags-item">
 				Related Tags:
@@ -13,32 +14,31 @@
 			</li>
 			{% endfor %}
 		</ul>
+		{# {% endcache %} #}
 	</div>
 
 </div>
 
 <table width="800" align="center" class="artist-showcast" cellspacing="0">
 	<tr>
-		<td valign="top" class="content">
+		<td valign="top" class="content" align="left">
 
 			<h2>Popular Albums</h2>
 
 			<table class="albums-index" align="center">
-				{% set n = 1 %}
 				<tr>
-				{% for album in albums %}
-					<td valign="top">
+				{% for n, album in albums %}
+					<td valign="top" align="left">
 						<div class="album-name">
-							<img src="{{ album.url }}" />
+							{{ link_to('album/' ~ album.id ~ '/' ~ album.uri, '<img src="' ~ album.url ~ '" />') }}
 						</div>
 						<div class="album-name">
 							{{ link_to('album/' ~ album.id ~ '/' ~ album.uri, album.name) }}
 						</div>
 					</td>
-					{% if (n % 3) == 0 %}
+					{% if ((n+1) % 3) == 0 %}
 						</tr><tr>
 					{% endif %}
-					{% set n = n + 1 %}
 				{% endfor %}
 			</table>
 
@@ -47,21 +47,19 @@
 				<h2>Similar Artists</h2>
 
 				<table class="albums-index" align="center">
-					{% set n = 1 %}
 					<tr>
-					{% for similar in similars %}
+					{% for n, similar in similars %}
 						<td valign="top">
 							<div class="album-name">
-								<img src="{{ similar.url }}" />
+								{{ link_to('artist/' ~ similar.id ~ '/' ~ similar.uri, '<img src="' ~ similar.url ~ '" />') }}
 							</div>
 							<div class="artist-name">
 								{{ link_to('artist/' ~ similar.id ~ '/' ~ similar.uri, similar.name) }}
 							</div>
 						</td>
-						{% if (n % 3) == 0 %}
+						{% if ((n+1) % 3) == 0 %}
 							</tr><tr>
 						{% endif %}
-						{% set n = n + 1 %}
 					{% endfor %}
 				</table>
 
@@ -69,7 +67,7 @@
 
 		</td>
 
-		<td class="image" valign="top">
+		<td class="image" valign="top" align="left">
 
 			<img src="{{ photo }}"/>
 

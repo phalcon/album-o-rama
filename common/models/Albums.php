@@ -24,15 +24,15 @@ class Albums extends \Phalcon\Mvc\Model
 			return $paletteCss;
 		}
 
-		$albumPalette = $this->getAlbumPalette();
-		if (count($albumPalette)) {
-			$palette = array();
-			foreach ($albumPalette as $paletteItem) {
-				$palette[$paletteItem->type] = $paletteItem->color;
-			}
-			Palette::write($paletteCss, $palette);
-			return $paletteCss;
-		}
+		//$albumPalette = $this->getAlbumPalette();
+		//if (count($albumPalette)) {
+		//	$palette = array();
+		//	foreach ($albumPalette as $paletteItem) {
+		//		$palette[$paletteItem->type] = $paletteItem->color;
+		//	}
+		//	Palette::write($paletteCss, $palette);
+		//	return $paletteCss;
+		//}
 
 		$albumPhoto = $this->getPhoto('medium');
 		if ($albumPhoto) {
