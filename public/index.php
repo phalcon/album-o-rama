@@ -19,7 +19,7 @@ try {
 	 */
 	$di->set('url', function() {
 		$url = new \Phalcon\Mvc\Url();
-		$url->setBaseUri('/album-o-rama/');
+		$url->setBaseUri('/album-o-rama/'); // If the project is in the Document Root folder, setBaseUri to '/'
 		return $url;
 	});
 

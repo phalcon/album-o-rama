@@ -149,17 +149,17 @@ class CatalogController extends ControllerBase
 			$page = 1;
 		}
 
-		$tag = Tags::findFirst(array(
+		$tagItem = Tags::findFirst(array(
 			'name = ?0', 'bind' => array($tagName)
 		));
-		if ($tag == false) {
+		if ($tagItem == false) {
 			return $this->dispatcher->forward(array(
 				'controller' => 'index',
 				'action' => 'index'
 			));
 		}
 
-		$key = 'tag'.$tag->id.'p'.$page;
+		$key = 'tag'.$tagItem->id.'p'.$page;
 
 		$exists = $this->view->getCache()->exists($key);
 		if (!$exists) {
@@ -178,13 +178,13 @@ class CatalogController extends ControllerBase
 			JOIN AlbumOrama\Models\AlbumsPhotos ap
 			WHERE
 			ap.type = "large" AND
-			at.tags_id = '.$tag->id.'
+			at.tags_id = '.$tagItem->id.'
 			ORDER BY al.playcount DESC
 			LIMIT 30
 			OFFSET '.(($page-1)*30);
 			$albums = $this->modelsManager->executeQuery($phql);
 
-			$this->view->setVar('tag', $tag);
+			$this->view->setVar('tagItem', $tagItem);
 			$this->view->setVar('albums', $albums);
 			$this->view->setVar('page', $page);
 			$this->view->setVar('prev', $page == 1 ? 0 : $page-1);

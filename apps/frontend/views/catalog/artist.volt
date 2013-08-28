@@ -8,9 +8,9 @@
 			<li class="tags-item">
 				Related Tags:
 			</li>
-			{% for tag in tags %}
+			{% for tagItem in tags %}
 			<li class="tags-item">
-				{{ link_to("tag/" ~ tag.name, tag.name) }}
+				{{ link_to("tag/" ~ tagItem.name, tagItem.name) }}
 			</li>
 			{% endfor %}
 		</ul>
