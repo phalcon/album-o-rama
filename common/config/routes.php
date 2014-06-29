@@ -89,6 +89,15 @@ $router->add('/about', array(
 	'action' => 'index'
 ));
 
+$router->add('^(?!/about|/charts|/popular|/search(/?)|/tag(/?)|/play(/?)|/album(/?)|/artist(/?)|/index|/$).*', array(
+	'module' => 'frontend',
+	'namespace' => 'AlbumOrama\Frontend\Controllers\\',
+	'controller' => 'about',
+	'action' => 'pageFault'
+));
+
+
+
 /**
  * Backend routes
  */
