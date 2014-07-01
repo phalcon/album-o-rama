@@ -51,5 +51,10 @@ class IndexController extends ControllerBase
 		$this->view->cache(array("key" => $key));
 	}
 
+	public function route404Action()
+	{
+
+	}
+
 }
 

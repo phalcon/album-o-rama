@@ -1,6 +1,8 @@
 <?php
 
-$router = new \Phalcon\Mvc\Router();
+$router = new \Phalcon\Mvc\Router(false);
+
+$router->removeExtraSlashes(true);
 
 /**
  * Frontend routes
@@ -26,6 +28,13 @@ $router->add('/index', array(
 	'action' => 'index'
 ));
 
+$router->notFound(array(
+	'module' => 'frontend',
+	'namespace' => 'AlbumOrama\Frontend\Controllers\\',
+	'controller' => 'index',
+	'action' => 'route404'
+));
+
 $router->add('/artist/{id:[0-9]+}/{name}', array(
 	'module' => 'frontend',
 	'namespace' => 'AlbumOrama\Frontend\Controllers\\',
@@ -38,13 +47,6 @@ $router->add('/album/{id:[0-9]+}/{name}', array(
 	'namespace' => 'AlbumOrama\Frontend\Controllers\\',
 	'controller' => 'catalog',
 	'action' => 'album',
-));
-
-$router->add('/play/{id:[0-9]+}', array(
-	'module' => 'frontend',
-	'namespace' => 'AlbumOrama\Frontend\Controllers\\',
-	'controller' => 'catalog',
-	'action' => 'play',
 ));
 
 $router->add('/tag/{name}', array(
@@ -64,8 +66,8 @@ $router->add('/tag/{name}/{page:[0-9]+}', array(
 $router->add('/search(/?)', array(
 	'module' => 'frontend',
 	'namespace' => 'AlbumOrama\Frontend\Controllers\\',
-	'controller' => 'catalog',
-	'action' => 'search'
+	'controller' => 'catalog'
+,	'action' => 'search'
 ));
 
 $router->add('/popular', array(
