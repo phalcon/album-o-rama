@@ -10,10 +10,5 @@ class AboutController extends ControllerBase
 
 	}
 
-	public function pageFaultAction()
-	{
-
-	}
-
 }
 
