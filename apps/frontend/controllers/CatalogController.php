@@ -8,15 +8,12 @@ use AlbumOrama\Models\Artists,
 
 class CatalogController extends ControllerBase
 {
-
 	public function indexAction()
 	{
-
 	}
 
 	public function artistAction($artistId, $artistName)
 	{
-
 		$key = 'artist'.$artistId;
 
 		$exists = $this->view->getCache()->exists($key);
@@ -87,7 +84,6 @@ class CatalogController extends ControllerBase
 
 	public function albumAction($albumId, $albumName)
 	{
-
 		$key = 'album'.$albumId;
 
 		$exists = $this->view->getCache()->exists($key);
@@ -138,12 +134,10 @@ class CatalogController extends ControllerBase
 		}
 
 		$this->view->cache(array("key" => $key));
-
 	}
 
-	 public function tagAction($tagName, $page=1)
+	public function tagAction($tagName, $page=1)
 	{
-
 		$page = $this->filter->sanitize($page, 'int');
 		if ($page < 1) {
 			$page = 1;
@@ -193,12 +187,10 @@ class CatalogController extends ControllerBase
 		}
 
 		$this->view->cache(array("key" => $key));
-
 	}
 
 	public function searchAction()
 	{
-
 		//Top albums
 		$phql = 'SELECT
 		ar.id,
@@ -218,12 +210,10 @@ class CatalogController extends ControllerBase
 		));
 
 		$this->view->setVar('artists', $artists);
-
 	}
 
 	public function popularAction()
 	{
-
 		$key = 'popular';
 
 		$exists = $this->view->getCache()->exists($key);
@@ -269,7 +259,6 @@ class CatalogController extends ControllerBase
 	 */
 	public function chartsAction()
 	{
-
 		$key = 'charts';
 
 		$exists = $this->view->getCache()->exists($key);

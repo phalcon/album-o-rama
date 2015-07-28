@@ -2,9 +2,10 @@
 
 namespace AlbumOrama\Models;
 
-class AlbumsTags extends \Phalcon\Mvc\Model
-{
+use Phalcon\Mvc\Model;
 
+class AlbumsTags extends Model
+{
 	public function getSource()
 	{
 		return 'albums_tags';
@@ -15,5 +16,4 @@ class AlbumsTags extends \Phalcon\Mvc\Model
 		$this->belongsTo('albums_id', 'AlbumOrama\Models\Albums', 'id');
 		$this->belongsTo('tags_id', 'AlbumOrama\Models\Tags', 'id');
 	}
-
 }

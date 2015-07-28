@@ -29,7 +29,7 @@ try {
 	 */
 	$di->set('url', function() {
 		$url = new Url();
-		$url->setBaseUri('/'); // If the project is in the Document Root folder, setBaseUri to '/'
+		$url->setBaseUri('/'); // If the project isn't in the Document Root folder, set setBaseUri to '/<relative-path-here>/'
 		return $url;
 	});
 

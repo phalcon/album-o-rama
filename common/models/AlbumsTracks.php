@@ -2,12 +2,12 @@
 
 namespace AlbumOrama\Models;
 
-class AlbumsTracks extends \Phalcon\Mvc\Model
-{
+use Phalcon\Mvc\Model;
 
+class AlbumsTracks extends Model
+{
 	public function getSource()
 	{
 		return 'albums_tracks';
 	}
-
 }

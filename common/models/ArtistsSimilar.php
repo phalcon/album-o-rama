@@ -2,9 +2,10 @@
 
 namespace AlbumOrama\Models;
 
-class ArtistsSimilar extends \Phalcon\Mvc\Model
-{
+use Phalcon\Mvc\Model;
 
+class ArtistsSimilar extends Model
+{
 	public function getSource()
 	{
 		return 'artists_similar';
@@ -14,5 +15,4 @@ class ArtistsSimilar extends \Phalcon\Mvc\Model
 	{
 		$this->belongsTo('artists_id', 'AlbumOrama\Models\Artists', 'id');
 	}
-
 }

@@ -4,7 +4,6 @@ namespace AlbumOrama\Components\Palette;
 
 class Palette
 {
-
 	public static function adjustBrightness($hex, $steps)
 	{
 		// Steps should be between -255 and 255. Negative = darker, positive = lighter
@@ -60,7 +59,6 @@ class Palette
 
 	public static function calculate($file)
 	{
-
 		if (preg_match('/\.png$/i', $file)) {
 			$image = imagecreatefrompng($file);
 		} else {
@@ -129,9 +127,7 @@ class Palette
 					} else {
 						$stats[$realcolor]++;
 					}
-
 				}
-
 			}
 
 			asort($stats);
