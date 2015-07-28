@@ -33,6 +33,7 @@ To run this application on your machine, you need at least:
 
 Then you'll need to create the database and initialize schema:
 
-    echo 'CREATE DATABASE albumorama' | mysql -u root
-    unzip schemas/albumorama.zip
-    cat schemas/albumorama.sql | mysql -u root albumorama
+```sh
+$ echo 'CREATE DATABASE albumorama' | mysql -u root
+$ cat schemas/albumorama.sql | mysql -u root albumorama
+```
