@@ -3,10 +3,10 @@
 namespace AlbumOrama\Models;
 
 use AlbumOrama\Components\Palette\Palette;
+use Phalcon\Mvc\Model;
 
-class Albums extends \Phalcon\Mvc\Model
+class Albums extends Model
 {
-
 	public $id;
 
 	public $artists_id;
@@ -18,7 +18,6 @@ class Albums extends \Phalcon\Mvc\Model
 
 	public function loadPalette()
 	{
-
 		$paletteCss = '../public/css/albums/'.$this->id.'.css';
 		if(file_exists($paletteCss)){
 			return $paletteCss;
@@ -36,7 +35,6 @@ class Albums extends \Phalcon\Mvc\Model
 
 		$albumPhoto = $this->getPhoto('medium');
 		if ($albumPhoto) {
-
 			/**
 			 * Get the palette colors based on the albums url
 			 */
@@ -57,7 +55,6 @@ class Albums extends \Phalcon\Mvc\Model
 		}
 
 		file_put_contents($paletteCss, '');
-
 	}
 
 	public function getPalette()

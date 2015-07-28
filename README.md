@@ -37,3 +37,11 @@ Then you'll need to create the database and initialize schema:
 $ echo 'CREATE DATABASE albumorama' | mysql -u root
 $ cat schemas/albumorama.sql | mysql -u root albumorama
 ```
+
+And set permissions to cache dirs:
+
+```sh
+$ chmod a+wx var/logs/
+$ chmod a+wx var/cache/
+$ chmod a+wx var/volt/
+```

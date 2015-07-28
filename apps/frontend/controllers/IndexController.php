@@ -4,10 +4,8 @@ namespace AlbumOrama\Frontend\Controllers;
 
 class IndexController extends ControllerBase
 {
-
 	public function indexAction()
 	{
-
 		$offset = mt_rand(0, 1000);
 		$key = 'index'.$offset;
 
@@ -53,8 +51,6 @@ class IndexController extends ControllerBase
 
 	public function route404Action()
 	{
-
 	}
-
 }
 

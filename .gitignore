@@ -1,3 +1,4 @@
+.idea
 var/cache/album*
 var/cache/index*
 var/cache/tag*
