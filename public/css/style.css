@@ -128,7 +128,7 @@ div#logo a {
 #header-search {
     display: block;
     float: right;
-    padding: 18px 0 0;
+    /*padding: 18px 0 0;*/
 }
 
 #header-search input {
