@@ -1,11 +1,19 @@
 {
   "name":        "phalcon/album-o-rama",
   "description": "Sample application for the Phalcon PHP Framework. We expect to implement as many features as possible to showcase the framework and its potential.",
+  "keywords":    ["sample app", "phalcon",  "catalog", "music"],
   "type":        "project",
   "license":     "BSD-3-Clause",
+  "homepage":    "http://album-o-rama.phalconphp.com/",
+  "authors": [
+    {
+      "name": "Phalcon Team",
+      "email": "team@phalconphp.com"
+    }
+  ],
   "support": {
     "source": "https://github.com/phalcon/album-o-rama",
-    "issues": "https://github.com/phalcon/album-o-rama",
+    "issues": "https://github.com/phalcon/album-o-rama/issues",
     "wiki":   "https://github.com/phalcon/album-o-rama/wiki"
   },
   "require": {
