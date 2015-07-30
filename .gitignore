@@ -1,4 +1,7 @@
-.idea
+vendor/
+.idea/
+composer.lock
+composer.phar
 var/cache/album*
 var/cache/index*
 var/cache/tag*

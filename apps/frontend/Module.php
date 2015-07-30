@@ -9,71 +9,70 @@ use Phalcon\Db\Adapter\Pdo\Mysql as Connection;
 
 class Module
 {
-	public function registerAutoloaders()
-	{
+    public function registerAutoloaders()
+    {
+        $loader = new Loader();
 
-		$loader = new Loader();
+        $loader->registerNamespaces([
+            'AlbumOrama\Frontend\Controllers' => __DIR__.'/controllers/',
+            'AlbumOrama\Models' => __DIR__.'/../../common/models/',
+            'AlbumOrama\Components\Palette' => __DIR__.'/../../common/library/Palette/',
+        ]);
 
-		$loader->registerNamespaces([
-			'AlbumOrama\Frontend\Controllers' => __DIR__.'/controllers/',
-			'AlbumOrama\Models' => __DIR__.'/../../common/models/',
-			'AlbumOrama\Components\Palette' => __DIR__.'/../../common/library/Palette/',
-		]);
+        $loader->register();
+    }
 
-		$loader->register();
-	}
+    public function registerServices($di)
+    {
+        /**
+         * Read configuration
+         */
+        $config = require __DIR__."/config/config.php";
 
-	public function registerServices($di)
-	{
-		/**
-		 * Read configuration
-		 */
-		$config = require __DIR__."/config/config.php";
+        /**
+         * Setting up the view component
+         */
+        $di->set('view', function() {
 
-		/**
-		 * Setting up the view component
-		 */
-		$di->set('view', function() {
+            $view = new View();
 
-			$view = new View();
+            $view->setViewsDir(__DIR__.'/views/');
 
-			$view->setViewsDir(__DIR__.'/views/');
+            $view->setTemplateBefore('main');
 
-			$view->setTemplateBefore('main');
+            $view->registerEngines([
+                ".volt" => function($view, $di) {
 
-			$view->registerEngines([
-				".volt" => function($view, $di) {
+                    $volt = new Volt($view, $di);
 
-					$volt = new Volt($view, $di);
+                    $volt->setOptions([
+                        'compiledPath' => function ($templatePath) {
+                            return realpath(__DIR__."/../../var/volt") . '/' . md5($templatePath) . '.php';
+                        },
+                        'compiledExtension' => '.php',
+                        'compiledSeparator' => '%'
+                    ]);
 
-					$volt->setOptions([
-						'compiledPath' => function ($templatePath) {
-							return realpath(__DIR__."/../../var/volt") . '/' . md5($templatePath) . '.php';
-						},
-						'compiledExtension' => '.php',
-						'compiledSeparator' => '%'
-					]);
+                    return $volt;
+                }
+            ]);
 
-					return $volt;
-				}
-			]);
+            return $view;
 
-			return $view;
+        });
 
-		});
+        /**
+         * Database connection is created based in the parameters defined in the configuration file
+         */
+        $di->set('db', function() use ($config) {
+            return new Connection([
+                "host" => $config->database->host,
+                "username" => $config->database->username,
+                "password" => $config->database->password,
+                "dbname" => $config->database->name
+            ]);
+        });
 
-		/**
-		 * Database connection is created based in the parameters defined in the configuration file
-		 */
-		$di->set('db', function() use ($config) {
-			return new Connection([
-				"host" => $config->database->host,
-				"username" => $config->database->username,
-				"password" => $config->database->password,
-				"dbname" => $config->database->name
-			]);
-		});
-
-	}
+    }
 
 }

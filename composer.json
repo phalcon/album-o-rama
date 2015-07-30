@@ -1,0 +1,15 @@
+{
+  "name":        "phalcon/album-o-rama",
+  "description": "Sample application for the Phalcon PHP Framework. We expect to implement as many features as possible to showcase the framework and its potential.",
+  "type":        "project",
+  "license":     "BSD-3-Clause",
+  "support": {
+    "source": "https://github.com/phalcon/album-o-rama",
+    "issues": "https://github.com/phalcon/album-o-rama",
+    "wiki":   "https://github.com/phalcon/album-o-rama/wiki"
+  },
+  "require": {
+    "php": ">= 5.4",
+    "ext-phalcon": "@stable"
+  }
+}
