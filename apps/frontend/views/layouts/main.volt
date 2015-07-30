@@ -27,10 +27,10 @@
 
 		<div id="header-search">
 			{{ form("search") }}
-				<div>
-					<input id="s" type="text" name="s" value="">
-					<input id="searchsubmit" type="submit" value="Search">
-				</div>
+			<div>
+				<input id="s" type="text" name="s" value="">
+				<input id="searchsubmit" type="submit" value="Search">
+			</div>
 			</form>
 		</div>
 

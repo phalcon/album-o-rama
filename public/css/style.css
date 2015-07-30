@@ -12,7 +12,7 @@
 }
 
 body {
-	font-family: 'PT Sans',sans-serif;
+    font-family: 'PT Sans',sans-serif;
     background: url("../img/background.png") repeat scroll 0 0 transparent;
 }
 
@@ -128,7 +128,7 @@ div#logo a {
 #header-search {
     display: block;
     float: right;
-    /*padding: 18px 0 0;*/
+    margin: 18px 0 10px;
 }
 
 #header-search input {
@@ -235,9 +235,7 @@ table.artist-showcast .bio {
 
 table.artist-showcast .content {
     background: #fff;
-    padding: 10px;
-    padding-left: 40px;
-    padding-top: 30px;
+    padding: 30px 10px 10px 40px;
     border: 1px solid #abaaba;
 }
 
@@ -306,7 +304,6 @@ table.chart tr:nth-child(2n+1) {
 
 #paginator a {
     color: #190000;
-    margin-top: 15px;
     margin: 10px;
 }
 
