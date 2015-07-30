@@ -1,7 +1,7 @@
 {
   "name":        "phalcon/album-o-rama",
   "description": "Sample application for the Phalcon PHP Framework. We expect to implement as many features as possible to showcase the framework and its potential.",
-  "keywords":    ["sample app", "phalcon",  "catalog", "music"],
+  "keywords":    ["phalcon",  "catalog", "music"],
   "type":        "project",
   "license":     "BSD-3-Clause",
   "homepage":    "http://album-o-rama.phalconphp.com/",
@@ -18,6 +18,6 @@
   },
   "require": {
     "php": ">= 5.4",
-    "ext-phalcon": "@stable"
+    "ext-phalcon": "~2.0"
   }
 }
