@@ -6,6 +6,6 @@ return new \Phalcon\Config(array(
         'host'     => 'localhost',
         'username' => 'root',
         'password' => '',
-        'name'     => 'albumorama',
+        'dbname'   => 'albumorama',
     )
 ));

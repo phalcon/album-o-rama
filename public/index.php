@@ -1,6 +1,6 @@
 <?php
 
-use Phalcon\DI\FactoryDefault;
+use Phalcon\Di\FactoryDefault;
 use Phalcon\Mvc\Url;
 use Phalcon\Session\Adapter\Files as FileSession;
 use Phalcon\Cache\Frontend\Output as FrontendCache;
@@ -29,7 +29,8 @@ try {
      */
     $di->set('url', function() {
         $url = new Url();
-        $url->setBaseUri('/'); // If the project isn't in the Document Root folder, set setBaseUri to '/<relative-path-here>/'
+        // If the project isn't in the Document Root folder, set setBaseUri to '/<relative-path-here>/'
+        $url->setBaseUri('/');
         return $url;
     });
 
