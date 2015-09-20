@@ -3,7 +3,6 @@
 namespace AlbumOrama\Models;
 
 use AlbumOrama\Components\Palette\Palette;
-use AlbumOrama\Models\Artists;
 use Phalcon\Mvc\Model\Resultset\Simple;
 use Phalcon\Mvc\Model;
 
