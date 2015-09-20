@@ -6,6 +6,11 @@ use Phalcon\Mvc\Model;
 
 class AlbumsPalette extends Model
 {
+    public $id;
+    public $albums_id;
+    public $type;
+    public $color;
+
     public function getSource()
     {
         return 'albums_palette';
