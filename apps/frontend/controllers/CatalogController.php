@@ -70,12 +70,15 @@ class CatalogController extends ControllerBase
             ORDER BY ar.listeners DESC
             LIMIT 10';
             $similars = $this->modelsManager->executeQuery($phql);
-
-            $this->view->setVar('artist', $artist);
-            $this->view->setVar('albums', $albums);
-            $this->view->setVar('similars', $similars);
-            $this->view->setVar('tags', $tags);
-            $this->view->setVar('photo', $artist->getPhoto('extralarge'));
+            
+            $this->view->setVars(
+            array(
+                "artist"    => $artist,
+                "albums"    => $albums,
+                "similars"  => $similars,
+                "tags"      => $tags,
+                "photo"     => $artist->getPhoto('extralarge')
+            ));
 
         }
 
