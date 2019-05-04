@@ -13,9 +13,9 @@ Thanks.
 
 ## NOTE
 
-The master branch will always contain the latest stable version. If you wish
-to check older versions or newer ones currently under development, please
-switch to the relevant branch. 
+The `master` branch will always contain the latest _unstable_ version. If you
+wish to check older versions or formal, tagged release, please switch to the
+relevant [tag](https://github.com/phalcon/album-o-rama/releases).
 
 ## Get Started
 
@@ -69,7 +69,7 @@ $ chmod a+wx var/volt/
 
 ## License
 
-Album O'Rama is open-sourced software licensed under the [New BSD License][6]. © Phalcon Framework Team and contributors
+Album O'Rama is open-sourced software licensed under the [New BSD License][6]. © Phalcon Team and contributors
 
 [1]: https://getcomposer.org/
 [2]: http://httpd.apache.org/
