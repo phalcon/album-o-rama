@@ -7,9 +7,8 @@ use Phalcon\Mvc\Controller;
 
 class ControllerBase extends Controller
 {
-    protected function initialize()
+    public function initialize()
     {
         Tag::setTitle('Album-O-Rama');
     }
-
 }
